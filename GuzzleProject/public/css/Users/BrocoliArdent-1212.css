@@ -1,0 +1,33 @@
+/* ---- Construire vos balises ---- */
+/* .votreUsername-nomDeVotreBalise  */
+/* ---- END Construire vos balises ---- */
+
+
+.gt-text-gras{
+	font-weight: bold;
+}
+
+.gt-text-ita{
+	font-style: italic;
+}
+
+.gt-text-justify{
+	text-align: justify;
+}
+
+.gt-text-red{
+	color: #D70400;
+}
+
+.gt-image{
+    width: 35%;
+    margin-top: 12px;
+    display: inline-block;
+}
+
+.gt-image-text {
+    display: inline-block;
+    vertical-align: top;
+    width: 63%;
+    padding-left: 10px;
+}

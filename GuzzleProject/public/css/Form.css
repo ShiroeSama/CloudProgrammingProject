@@ -1,0 +1,179 @@
+/* -------- Variables -------- */
+
+:root {
+    --form-color-white: #FFFFFF;
+	--form-color-blue: #337ab7;
+	--form-color-orange: #E67E22;
+    --form-color-black: #000000;
+    --form-color-dark: #424242;
+    --form-color-ldark: #525252;
+
+	--form-color-error: #D44A26;
+	--form-color-error-focus: #AE3C1E;
+}
+
+/* -------- END Variables -------- */
+
+
+/* -------- Form Fields -------- */
+
+	/* ---- LEGEND ---- */
+
+		legend {
+			margin: 20px 0;
+			padding: 10px 5px;
+
+			font-size: 25px;
+			font-weight: bold;
+			
+			border: none;
+            border-bottom: 1px solid var(--form-color-blue);
+		}
+
+
+
+	/* ---- INPUT (DEFAULT) ---- */
+
+		input {
+			width: 100%;
+            box-sizing: border-box;
+
+			margin: 10px 0;
+			padding: 5px 10px;
+
+			-webkit-transform: translateZ(0);
+			-webkit-transition: all 0.2s ease-out;
+			-moz-transition: all 0.2s ease-out;
+			-o-transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out;
+
+            border: none;
+            /* border-radius: 5px 5px 0 0; */
+            border-bottom: 1px solid var(--form-color-orange);
+
+            background-color: rgba(0,0,0,.015);
+		}
+
+		input:focus,textarea:focus { border-bottom: 1px solid var(--form-color-blue); }
+
+
+
+	/* ---- INPUT (ERROR) ---- */
+
+		input.formError {
+			color: var(--form-color-error);
+			border: 2px solid var(--form-color-error);
+		}
+		input.formError:focus { border: 2px solid var(--form-color-error-focus); }
+
+
+
+	/* ---- INPUT (RADIO & CHECKBOX) ---- */
+
+		input[type="radio"],
+		input[type="checkbox"] {
+			margin: 4px;
+			width: auto;
+			vertical-align: middle;
+		}
+
+		input[type="radio"],
+		input[type="radio"]:not(:checked) + label,
+		input[type="radio"]:checked + label,
+		input[type="checkbox"],
+		input[type="checkbox"]:not(:checked) + label,
+		input[type="checkbox"]:checked + label {
+			cursor: pointer;
+
+			-webkit-transform: translateZ(0);
+			-webkit-transition: all 0.2s ease-out;
+			-moz-transition: all 0.2s ease-out;
+			-o-transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out;
+		}
+
+		input[type="radio"]:checked + label,
+		input[type="checkbox"]:checked + label { color: var(--form-color-orange); }
+
+		input[type="radio"]:not(:checked) + label:hover,
+		input[type="checkbox"]:not(:checked) + label:hover { color: var(--form-color-orange); }
+
+		input[type="checkbox"]:checked + label:hover { color: var(--form-color-dark); }
+
+
+
+	/* ---- INPUT (SEARCH) ---- */
+		
+
+		input[type="search"] {
+            height: auto;
+            width: 30%;
+            padding: 12px 20px 12px 50px;
+
+            font-size: 16px;
+            color: var(--form-color-ldark);
+
+            background-image: url('../images/searchicon.svg');
+            background-size: 25px;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+
+            border-radius: 5px 5px 0 0;
+			
+			-webkit-transition: width 0.4s ease-in-out;
+			transition: width 0.4s ease-in-out;
+		}
+
+		input[type="search"]:focus { width: 100%; }
+
+
+
+	/* ---- SELECT ---- */
+
+		select {
+			width: 250px;
+			padding: 5px 20px;
+			border: none;
+
+			color: var(--form-color-white);
+			background-color: var(--form-color-orange);
+			box-shadow: 0px 0px 5px 1px var(--form-color-dark);
+		}
+
+		select > option { 
+			padding: 8px;
+			background-color: var(--form-color-dark);
+
+			border: none;
+			border-bottom: 1px solid var(--form-color-orange);
+		}
+
+
+
+	/* ---- TEXTAREA ---- */
+
+		textarea {
+			height: 200px;
+			width: 100%;
+			box-sizing: border-box;
+
+            margin: 10px 0;
+			padding: 10px 10px;
+
+			resize: vertical;
+
+			border: none;
+            /* border-radius: 5px 5px 0 0; */
+			border-bottom: 1px solid var(--form-color-orange);
+
+			background-color: rgba(0,0,0,.015);
+		}
+
+		textarea.formError {
+			color: var(--form-color-error);
+			border: 2px solid var(--form-color-error);
+		}
+		textarea.formError:focus { border: 2px solid var(--form-color-error-focus); }
+
+
+/* -------- END Form Fields -------- */

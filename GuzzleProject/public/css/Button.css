@@ -1,0 +1,389 @@
+/* -------- Variables -------- */
+
+:root {
+    --btn-color-default: #4e5d6c;
+    --btn-color-default-clicked: #39444e;
+
+    --btn-color-info: #5bc0de;
+    --btn-color-info-clicked: #31b0d5;
+
+    --btn-color-success: #5cb85c;
+    --btn-color-success-clicked: #449d44;
+
+    --btn-color-warning: #f0ad4e;
+    --btn-color-warning-clicked: #ec971f;
+
+    --btn-color-danger: #D44A26;
+    --btn-color-danger-clicked: #AE3C1E;
+
+    --btn-color-danger2: #d9534f;
+    --btn-color-danger2-clicked: #c9302c;
+
+    --btn-color-blue: #337ab7;
+    --btn-color-blue-clicked: #2b6596;
+
+    --btn-color-orange: #E67E22;
+    --btn-color-orange-clicked: #B15315;
+
+    --btn-color-dark: #525252;
+
+    --btn-color-white: #FFFFFF;
+}
+
+/* -------- END Variables -------- */
+
+
+/* -------- Button -------- */
+
+    /* -- Configuration -- */
+
+		.btn {
+			display: inline-block;
+			padding: 8px 16px;
+			margin-bottom: 0;
+
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 1.42857143;
+
+			text-align: center;
+			vertical-align: middle;
+
+			-ms-touch-action:manipulation;
+			touch-action:manipulation;
+
+			cursor: pointer;
+			overflow: hidden;
+
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;	 
+
+			-webkit-transform: translateZ(0);
+			-webkit-transition: all 0.2s ease-out;
+			-moz-transition: all 0.2s ease-out;
+			-o-transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out;
+
+			background-image: none;
+
+			border: 1px solid transparent;
+			border-radius: 0;
+		}
+
+		.btn-block { display: block !important; }
+		.btn-block+.btn-block { margin-top: 5px; }
+
+		.btn-10 { padding: 10px; }
+		.btn-20 { padding: 20px; }
+		.btn-30 { padding: 30px; }
+		.btn-40 {
+			padding: 40px;
+			font-size: 20px !important;
+		}
+		.btn-50 {
+			padding: 50px;
+			font-size: 25px !important;
+		}
+		.btn-60 {
+			padding: 60px;
+			font-size: 30px !important;
+		}
+		.btn-70 {
+			padding: 70px;
+			font-size: 30px !important;
+		}
+		.btn-80 {
+			padding: 80px;
+			font-size: 30px !important;
+		}
+		.btn-90 {
+			padding: 90px;
+			font-size: 30px !important;
+		}
+		.btn-100 {
+			padding: 100px;
+			font-size: 30px !important;
+		}
+
+    /* -- END Configuration -- */
+
+    /* -- BASIC -- */
+
+        .btn:focus,
+        .btn:active:focus,
+        .btn.active:focus {
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px
+        }
+        .btn:hover,
+        .btn:focus{
+            color: var(--btn-color-white);
+            text-decoration: none
+        }
+        .btn:active {
+            outline: 0;
+            background-image: none;
+            -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+        }
+
+
+    /* -- DEFAULT -- */
+
+        .btn-default {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-default);
+            border-color: transparent
+        }
+        .btn-default:focus,
+        .btn-default:hover,
+        .btn-default:active,
+        .btn-default-clicked {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-default-clicked);
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+
+    /* -- INFO -- */
+
+        .btn-info {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-info);
+            border-color: transparent
+        }
+        .btn-info:focus,
+        .btn-info:hover,
+        .btn-info:active,
+        .btn-info-clicked {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-info-clicked);
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+
+    /* -- PRIMARY -- */
+
+        .btn-primary {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-blue);
+            border-color: transparent
+        }
+        .btn-primary:focus,
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary-clicked {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-blue-clicked);
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+
+    /* -- SECONDARY -- */
+
+        .btn-secondary {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-orange) !important;
+            border-color: transparent
+        }
+        .btn-secondary:focus,
+        .btn-secondary:hover,
+        .btn-secondary:active,
+        .btn-secondary-clicked {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-orange-clicked) !important;
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+
+    /* -- THIRD -- */
+
+        .btn-third {
+            color: var(--btn-color-orange) !important;
+            background-color: var(--btn-color-white) !important;
+            border-color: transparent
+        }
+        .btn-third:focus,
+        .btn-third:hover,
+        .btn-third:active,
+        .btn-third-clicked {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-orange) !important;
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+
+    /* -- FOURTH -- */
+
+        .btn-fourth {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-blue) !important;
+            border-color: transparent
+        }
+        .btn-fourth:focus,
+        .btn-fourth:hover,
+        .btn-fourth:active,
+        .btn-fourth-clicked {
+            color: var(--btn-color-orange) !important;
+            background-color: var(--btn-color-dark) !important;
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+        .btn-fourth-revert {
+            color: var(--btn-color-orange) !important;
+            background-color: var(--btn-color-dark) !important;
+            border-color: transparent
+        }
+        .btn-fourth-revert:focus,
+        .btn-fourth-revert:hover,
+        .btn-fourth-revert:active,
+        .btn-fourth-revert-clicked {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-blue) !important;
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+
+    /* -- FIFTH -- */
+
+        .btn-fifth {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-blue) !important;
+            border-color: transparent
+        }
+        .btn-fifth:focus,
+        .btn-fifth:hover,
+        .btn-fifth:active,
+        .btn-fifth-clicked {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-orange) !important;
+            border-color: transparent
+        }
+
+        .btn-fifth-revert {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-orange) !important;
+            border-color: transparent
+        }
+        .btn-fifth-revert:focus,
+        .btn-fifth-revert:hover,
+        .btn-fifth-revert:active,
+        .btn-fifth-revert-clicked {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-blue) !important;
+            border-color: transparent
+        }
+
+
+    /* -- SIXTH -- */
+
+        .btn-sixth {
+            color: var(--btn-color-blue) !important;
+            background-color: var(--btn-color-white) !important;
+
+            border: none;
+            border-bottom: 1px solid var(--btn-color-orange);
+        }
+        .btn-sixth:focus,
+        .btn-sixth:hover,
+        .btn-sixth:active,
+        .btn-sixth-clicked {
+            color: var(--btn-color-white) !important;
+            background-color: var(--btn-color-blue) !important;
+            border-color: transparent;
+        }
+
+
+    /* -- SUCCESS -- */
+
+        .btn-success {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-success);
+            border-color: transparent
+        }
+        .btn-success:focus,
+        .btn-success:hover,
+        .btn-success:active,
+        .btn-success-clicked {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-success-clicked);
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+
+    /* -- WARNING -- */
+
+        .btn-warning {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-warning);
+            border-color: transparent
+        }
+        .btn-warning:focus,
+        .btn-warning:hover,
+        .btn-warning:active,
+        .btn-warning-clicked {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-warning-clicked);
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+
+    /* -- DANGER -- */
+
+        .btn-danger {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-danger);
+            border-color: transparent
+        }
+        .btn-danger:focus,
+        .btn-danger:hover,
+        .btn-danger:active,
+        .btn-danger-clicked {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-danger-clicked);
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+        .btn-danger2 {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-danger2);
+            border-color: transparent
+        }
+        .btn-danger2:focus,
+        .btn-danger2:hover,
+        .btn-danger2:active,
+        .btn-danger2-clicked {
+            color: var(--btn-color-white);
+            background-color: var(--btn-color-danger2-clicked);
+            border-color: rgba(0, 0, 0, 0)
+        }
+
+/* -------- END Button -------- */
+
+
+
+/* -------- Mobile Button -------- */
+
+    /* SCREEN WIDTH 1200 PX */
+    @media screen and (max-width: 1200px) {
+        /* -- Configuration -- */
+            .btn-10 { padding: 10px; }
+            .btn-20 { padding: 20px; }
+            .btn-30 { padding: 30px; }
+            .btn-40,
+            .btn-50,
+            .btn-60,
+            .btn-70,
+            .btn-80,
+            .btn-90,
+            .btn-100 {
+                padding: 40px;
+                font-size: 20px !important;
+            }
+
+        /* -- END Configuration -- */
+    }
+
+/* -------- END Mobile Button -------- */

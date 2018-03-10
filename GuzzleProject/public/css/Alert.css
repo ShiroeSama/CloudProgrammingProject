@@ -1,0 +1,143 @@
+/* -------- Variables -------- */
+
+:root {
+	--alert-color-default: #4e5d6c;
+	--alert-color-info: #5bc0de;
+	--alert-color-success: #5cb85c;
+	--alert-color-warning: #f0ad4e;
+	--alert-color-danger: #D44A26;
+	--alert-color-blue: #337ab7;
+	--alert-color-orange: #E67E22;
+	--alert-color-white: #FFFFFF;
+}
+
+/* -------- END Variables -------- */
+
+
+/* -------- Alert -------- */
+	
+	.alert {
+		display: block;
+
+		font-size: 20px;
+		text-align: center;
+
+		border-radius: 0;
+		border: 1px solid transparent;
+	}
+
+	.alert > a {
+		display: block;
+		padding: 10px 20px;
+
+		font-size: 20px;
+		text-align: center;
+	}
+
+
+	/* -- DEFAULT -- */
+
+		.alert-default {
+			color: var(--alert-color-white);
+			background-color: var(--alert-color-default);
+			border-color: transparent;
+		}
+
+		.alert-default-revert {
+			color: var(--alert-color-default);
+			background-color: transparent;
+			border-color: transparent;
+		}
+
+
+	/* -- INFO -- */
+
+		.alert-info {
+			color: var(--alert-color-white);
+			background-color: var(--alert-color-info);
+			border-color: transparent;
+		}
+
+		.alert-info-revert {
+			color: var(--alert-color-info);
+			background-color: transparent;
+			border-color: transparent;
+		}
+
+
+	/* -- PRIMARY -- */
+
+		.alert-primary {
+			color: var(--alert-color-white);
+			background-color: var(--alert-color-blue);
+			border-color: transparent;
+		}
+
+		.alert-primary-revert {
+			color: var(--alert-color-blue);
+			background-color: transparent;
+			border-color: transparent;
+		}
+
+
+	/* -- SECONDARY -- */
+
+		.alert-secondary {
+			color: var(--alert-color-white);
+			background-color: var(--alert-color-orange);
+			border-color: transparent;
+		}
+
+		.alert-secondary-revert {
+			color: var(--alert-color-orange);
+			background-color: transparent;
+			border-color: transparent;
+		}
+
+
+	/* -- SUCCESS -- */
+
+		.alert-success {
+			color: var(--alert-color-white);
+			background-color: var(--alert-color-success);
+			border-color: transparent;
+		}
+
+		.alert-success-revert {
+			color: var(--alert-color-success);
+			background-color: transparent;
+			border-color: transparent;
+		}
+
+
+	/* -- WARNING -- */
+
+		.alert-warning {
+			color: var(--alert-color-white);
+			background-color: var(--alert-color-warning);
+			border-color: transparent;
+		}
+
+		.alert-warning-revert {
+			color: var(--alert-color-warning);
+			background-color: transparent;
+			border-color: transparent;
+		}
+
+
+	/* -- DANGER -- */
+
+		.alert-danger {
+			color: var(--alert-color-white);
+			background-color: var(--alert-color-danger);
+			border-color: transparent;
+		}
+
+		.alert-danger-revert {
+			color: var(--alert-color-danger);
+			background-color: transparent;
+			border-color: transparent;
+		}
+
+
+/* ---- END Contenue des Pages ---- */
