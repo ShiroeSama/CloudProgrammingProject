@@ -66,38 +66,49 @@
 		}
 		
 		/**
-		 * @param array $account
+		 * @param object $account
 		 * @return Account
 		 * @throws ShirOSException
 		 */
-		public function createAccount(array $account): Account
+		public function createAccount(object $account): Account
 		{
-			if (isset($account[$this->ConfigModule->get('Fields.Name.Id')])
-				&& isset($account[$this->ConfigModule->get('Fields.Name.AccountName')])
-				&& isset($account[$this->ConfigModule->get('Fields.Name.Lastname')])
-				&& isset($account[$this->ConfigModule->get('Fields.Name.Firstname')])
-				&& isset($account[$this->ConfigModule->get('Fields.Name.Amount')])
-				&& isset($account[$this->ConfigModule->get('Fields.Name.Risk')])
-				&& isset($account[$this->ConfigModule->get('Fields.Name.Risk')][$this->ConfigModule->get('Fields.Name.Id')])
-				&& isset($account[$this->ConfigModule->get('Fields.Name.Risk')][$this->ConfigModule->get('Fields.Name.RiskValue')])
-			) {
-				$accountModel = new Account();
-				$risk = new Risk();
+			$idField = $this->ConfigModule->get('Fields.Name.Id');
+			$accountNameField = $this->ConfigModule->get('Fields.Name.AccountName');
+			$lastnameField = $this->ConfigModule->get('Fields.Name.Lastname');
+			$firstnameField = $this->ConfigModule->get('Fields.Name.Firstname');
+			$amountField = $this->ConfigModule->get('Fields.Name.Amount');
+			$riskField = $this->ConfigModule->get('Fields.Name.Risk');
+			$riskValueField = $this->ConfigModule->get('Fields.Name.RiskValue');
+			
+			if (property_exists($account, $idField)
+				&& property_exists($account, $accountNameField)
+				&& property_exists($account, $lastnameField)
+				&& property_exists($account, $firstnameField)
+				&& property_exists($account, $amountField)
+				&& property_exists($account, $riskField)
+			){
+				$risk = $account->$riskField;
 				
-				$risk->setId($account[$this->ConfigModule->get('Fields.Name.Risk')][$this->ConfigModule->get('Fields.Name.Id')]);
-				$risk->setName($account[$this->ConfigModule->get('Fields.Name.Risk')][$this->ConfigModule->get('Fields.Name.RiskValue')]);
-				
-				$accountModel->setId($account[$this->ConfigModule->get('Fields.Name.Id')]);
-				$accountModel->setName($account[$this->ConfigModule->get('Fields.Name.AccountName')]);
-				$accountModel->setLastname($account[$this->ConfigModule->get('Fields.Name.Lastname')]);
-				$accountModel->setFirstname($account[$this->ConfigModule->get('Fields.Name.Firstname')]);
-				$accountModel->setAmount($account[$this->ConfigModule->get('Fields.Name.Amount')]);
-				$accountModel->setRisk($risk);
-				
-				return $accountModel;
-			} else {
-				throw new ShirOSException();
+				if (property_exists($risk, $idField)
+					&& property_exists($account, $riskValueField)
+				){
+					$accountModel = new Account();
+					$riskModel = new Risk();
+					
+					$riskModel->setId($risk->$idField);
+					$riskModel->setName($risk->$riskValueField);
+					
+					$accountModel->setId($account->$idField);
+					$accountModel->setName($account->$accountNameField);
+					$accountModel->setLastname($account->$lastnameField);
+					$accountModel->setFirstname($account->$firstnameField);
+					$accountModel->setAmount($account->$amountField);
+					$accountModel->setRisk($riskModel);
+					
+					return $accountModel;
+				}
 			}
+			throw new ShirOSException();
 		}
 	}
 ?>

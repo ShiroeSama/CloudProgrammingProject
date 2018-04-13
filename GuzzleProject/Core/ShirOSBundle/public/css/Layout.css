@@ -23,8 +23,6 @@
 			font-size: 15px;
 			font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;  /* "AlmendraRegular" , "Helvetica Neue" , "JosefinSlabRegular", "RokkitRegular" */
 			word-wrap: break-word;
-
-			overflow: hidden;
 		}
 
 		header {

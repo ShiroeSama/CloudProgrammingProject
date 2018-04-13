@@ -91,7 +91,7 @@
 						$response = $request->send();
 						
 						if ($response->getStatusCode() == 201) {
-							$this->SessionModule->navBack();
+							$this->UrlModule->goTo('Homepage');
 						} else {
 							throw new ShirOSException($response->getBody(), $response->getStatusCode());
 						}

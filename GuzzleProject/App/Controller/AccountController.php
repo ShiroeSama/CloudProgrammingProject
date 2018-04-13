@@ -18,6 +18,7 @@
 	
 	use App\Core\Service\Account\AccountService;
 	use App\Core\Validation\Account\AccountValidation;
+	use Guzzle\Http\Exception\RequestException;
 	use ShirOSBundle\Utils\Exception\ShirOSException;
 	use ShirOSBundle\View\HTML\ShirOSForm;
 	
@@ -100,7 +101,7 @@
 							$response = $request->send();
 							
 							if ($response->getStatusCode() == 201) {
-								$this->SessionModule->navBack();
+								$this->UrlModule->goTo('Account');
 							} else {
 								throw new ShirOSException($response->getBody(), $response->getStatusCode());
 							}
@@ -126,7 +127,7 @@
 				$response = $request->send();
 				
 				if ($response->getStatusCode() == 204) {
-					$this->SessionModule->navBack();
+					$this->UrlModule->goTo('Account');
 				} else {
 					throw new ShirOSException($response->getBody(), $response->getStatusCode());
 				}

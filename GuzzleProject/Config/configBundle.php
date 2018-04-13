@@ -47,7 +47,7 @@
         'Server' => [
             'Name'      => 'Project Guzzle (Cloud Computing)',
             'Author'    => 'Alexandre Caillot & Florian Hebert',
-            'Homepage'  => '/',
+            'Homepage'  => 'http://dev.shiros.fr/CloudComputing',
         ],
 
         /*

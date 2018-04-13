@@ -51,7 +51,7 @@
 				# Account
 				'AccountId'     => 'accountId',
 				'Account'       => 'account',
-				'AccountName'   => 'accountName',
+				'AccountName'   => 'name',
 				'Lastname'      => 'lastname',
 				'Firstname'     => 'firstname',
 				'Amount'        => 'amount',

@@ -214,7 +214,6 @@
 		 */
 		protected function catchOtherThrowable(Throwable $throwable)
 		{
-			/*TODO : Redifine this on SubClass*/
 			$this->RenderModule->error($throwable->getCode(), $throwable->getMessage());
 		}
 			

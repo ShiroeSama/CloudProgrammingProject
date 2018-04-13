@@ -24,7 +24,7 @@
 	class AppController extends Controller
 	{
 		protected const BASE_URL_GAE = '';
-		protected const BASE_URL_HEROKU = '';
+		protected const BASE_URL_HEROKU = 'https://arcane-lake-71736.herokuapp.com';
 		
 		protected const GAE_API_URL = '';
 		protected const HEROKU_API_URL = '';
@@ -49,7 +49,6 @@
 		{
 			parent::__construct();
 			
-			$this->SessionModule->navSet();
 			$this->ApplicationModule = App::getInstance();
 			$this->UrlModule = new Url();
 			

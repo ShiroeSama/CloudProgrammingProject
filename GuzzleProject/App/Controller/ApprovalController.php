@@ -17,6 +17,7 @@
 	
 	
 	use App\Core\Service\Approval\ApprovalService;
+	use Guzzle\Http\Exception\RequestException;
 	use ShirOSBundle\Utils\Exception\ShirOSException;
 	
 	class ApprovalController extends AppController
@@ -71,7 +72,7 @@
 				$response = $request->send();
 				
 				if ($response->getStatusCode() == 204) {
-					$this->SessionModule->navBack();
+					$this->UrlModule->goTo('Approval');
 				} else {
 					throw new ShirOSException($response->getBody(), $response->getStatusCode());
 				}
