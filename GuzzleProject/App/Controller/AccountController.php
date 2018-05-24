@@ -18,7 +18,6 @@
 	
 	use App\Core\Service\Account\AccountService;
 	use App\Core\Validation\Account\AccountValidation;
-	use Guzzle\Http\Exception\RequestException;
 	use ShirOSBundle\Utils\Exception\ShirOSException;
 	use ShirOSBundle\View\HTML\ShirOSForm;
 	

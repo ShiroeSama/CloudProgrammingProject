@@ -31,7 +31,7 @@
 		{
 			$accounts = [];
 			
-			foreach ($body as $objectId => $element) {
+			foreach ($body as $element) {
 				try {
 					$account = $this->createAccount($element);
 					array_push($accounts, $account);
@@ -52,11 +52,14 @@
 		{
 			$accounts = [];
 			
-			foreach ($body as $objectId => $element) {
-				if (isset($element[$this->ConfigModule->get('Fields.Name.Id')])
-					&& isset($element[$this->ConfigModule->get('Fields.Name.AccountName')])
-				) {
-					$accounts[$element[$this->ConfigModule->get('Fields.Name.Id')]] = $element[$this->ConfigModule->get('Fields.Name.AccountName')];
+			$idField = $this->ConfigModule->get('Fields.Name.Id');
+			$accountNameField = $this->ConfigModule->get('Fields.Name.AccountName');
+			
+			foreach ($body as $element) {
+				if (property_exists($element, $idField)
+					&& property_exists($element, $accountNameField)
+				){
+					$accounts[$element->$idField] = $element->$accountNameField;
 				} else {
 					throw new ShirOSException();
 				}
@@ -66,11 +69,11 @@
 		}
 		
 		/**
-		 * @param object $account
+		 * @param $account
 		 * @return Account
 		 * @throws ShirOSException
 		 */
-		public function createAccount(object $account): Account
+		public function createAccount($account): Account
 		{
 			$idField = $this->ConfigModule->get('Fields.Name.Id');
 			$accountNameField = $this->ConfigModule->get('Fields.Name.AccountName');

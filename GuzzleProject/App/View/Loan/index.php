@@ -11,13 +11,7 @@
 
 <section class="item ptb-50 plr-100">
 	<div class="post">
-		<div class="post-header d-inline-vcenter text-left">
-			<a class="d-inline w-80 mtb-auto">Demande de crédit</a>
-			
-			<form method="POST" class="d-inline w-20 text-end">
-				<?= $form->submitWithId($ConfigModule->get('Url.Key.Return'), 'Retour', NULL, 'btn-third'); ?>
-			</form>
-		</div>
+		<div class="post-header">Demande de crédit</div>
 		
 		<div class="post-content">
 			
@@ -47,12 +41,14 @@
 						<?php if(isset($errors[$ConfigModule->get('Fields.Name.Amount')])) : ?>
 							<?= $form->field($ConfigModule->get('Fields.Name.Amount'), 'Montant', NULL, [ShirOSForm::OPTIONS_SURROUND => 'd-inline w-70'], true); ?>
 							<?php if(!empty($errors[$ConfigModule->get('Fields.Name.Amount')])): ?>
-								<div class="alert alert-danger-revert text-size-14"><?= $errors[$ConfigModule->get('Fields.Name.Amount')] ?></div>
+                                <div class="alert alert-danger-revert text-size-14"><?= $errors[$ConfigModule->get('Fields.Name.Amount')] ?></div>
 							<?php endif; ?>
 						<?php else: ?>
-							<?= $form->field($ConfigModule->get('Fields.Name.Year'), 'Montant', NULL, [ShirOSForm::OPTIONS_SURROUND => 'd-inline w-70']); ?>
+							<?= $form->field($ConfigModule->get('Fields.Name.Amount'), 'Montant', NULL, [ShirOSForm::OPTIONS_SURROUND => 'd-inline w-70']); ?>
 						<?php endif; ?>
 					</div>
+     
+					<?= $form->submit('Envoyer', NULL, [ShirOSForm::OPTIONS_SURROUND => 'd-inline-center mt-20']); ?>
 				</form>
 			</div>
 		

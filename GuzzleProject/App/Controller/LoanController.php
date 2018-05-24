@@ -104,7 +104,7 @@
 			$form = new ShirOSForm($values);
 			$var = compact('form','accounts', 'valid', 'errors');
 			
-			$this->render('Account.add', $var);
+			$this->render('Loan.index', $var);
 		}
 	}
 ?>
