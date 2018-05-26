@@ -9,16 +9,16 @@
 	 *
 	 *   @File : ApprovalService.php
 	 *   @Created_at : 10/03/2018
-	 *   @Update_at : 10/03/2018
+	 *   @Update_at : 26/05/2018
 	 * --------------------------------------------------------------------------
 	 */
 	
 	namespace App\Core\Service\Approval;
 	
 	use App\Core\Service\Account\AccountService;
+	use App\Core\Service\Response\ResponseService;
 	use App\Core\Service\AppService;
 	use App\Model\Approval;
-	use App\Model\Response;
 	use ShirOSBundle\Utils\Exception\ShirOSException;
 	
 	class ApprovalService extends AppService
@@ -29,12 +29,18 @@
 		protected $accountService;
 		
 		/**
+		 * @var ResponseService
+		 */
+		protected $responseService;
+		
+		/**
 		 * ApprovalService constructor.
 		 */
 		public function __construct()
 		{
 			parent::__construct();
 			$this->accountService = new AccountService();
+			$this->responseService = new ResponseService();
 		}
 		
 		/**
@@ -64,29 +70,24 @@
 		 * @return Approval
 		 * @throws ShirOSException
 		 */
-		public function createApproval(array $approval): Approval
+		public function createApproval($approval): Approval
 		{
-			if (isset($approval[$this->ConfigModule->get('Fields.Name.Id')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Date')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Account')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Account')][$this->ConfigModule->get('Fields.Name.Id')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Account')][$this->ConfigModule->get('Fields.Name.AccountName')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Account')][$this->ConfigModule->get('Fields.Name.Lastname')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Account')][$this->ConfigModule->get('Fields.Name.Firstname')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Account')][$this->ConfigModule->get('Fields.Name.Amount')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Response')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Response')][$this->ConfigModule->get('Fields.Name.Id')])
-				&& isset($approval[$this->ConfigModule->get('Fields.Name.Response')][$this->ConfigModule->get('Fields.Name.ResponseValue')])
+			$idField = $this->ConfigModule->get('Fields.Name.Id');
+			$dateField = $this->ConfigModule->get('Fields.Name.Date');
+			$accountField = $this->ConfigModule->get('Fields.Name.Account');
+			$responseField = $this->ConfigModule->get('Fields.Name.Response');
+			
+			if (property_exists($approval,$idField)
+				&& property_exists($approval,$dateField)
+				&& property_exists($approval,$accountField)
+				&& property_exists($approval,$responseField)
 			) {
 				$approvalModel = new Approval();
-				$account = $this->accountService->createAccount($approval[$this->ConfigModule->get('Fields.Name.Account')]);
-				$response = new Response();
+				$account = $this->accountService->createAccount($approval->$accountField);
+				$response = $this->responseService->createResponse($approval->$responseField);
 				
-				$response->setId($approval[$this->ConfigModule->get('Fields.Name.Response')][$this->ConfigModule->get('Fields.Name.Id')]);
-				$response->setName($approval[$this->ConfigModule->get('Fields.Name.Response')][$this->ConfigModule->get('Fields.Name.ResponseValue')]);
-				
-				$approvalModel->setId($approval[$this->ConfigModule->get('Fields.Name.Id')]);
-				$approvalModel->setDate($approval[$this->ConfigModule->get('Fields.Name.Date')]);
+				$approvalModel->setId($approval->$idField);
+				$approvalModel->setDate($approval->$dateField);
 				$approvalModel->setAccount($account);
 				$approvalModel->setResponse($response);
 				

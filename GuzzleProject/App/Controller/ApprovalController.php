@@ -9,7 +9,7 @@
 	 *
 	 *   @File : ApprovalController.php
 	 *   @Created_at : 10/03/2018
-	 *   @Update_at : 10/03/2018
+	 *   @Update_at : 25/05/2018
 	 * --------------------------------------------------------------------------
 	 */
 	
@@ -22,7 +22,7 @@
 	
 	class ApprovalController extends AppController
 	{
-		protected const HEROKU_API_URL = '/api/approvals';
+		public const API_URL = '/api/approvals';
 		
 		/**
 		 * @var ApprovalService
@@ -68,7 +68,7 @@
 			 */
 			public function delete(int $id)
 			{
-				$request = $this->GuzzleClientHeroku->delete(self::BASE_URL_HEROKU . self::HEROKU_API_URL . "/{$id}");
+				$request = $this->GuzzleClientHeroku->delete(self::BASE_URL_HEROKU . self::API_URL . "/{$id}");
 				$response = $request->send();
 				
 				if ($response->getStatusCode() == 204) {

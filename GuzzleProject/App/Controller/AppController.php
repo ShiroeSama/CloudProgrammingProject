@@ -9,7 +9,7 @@
 	 *
 	 *   @File : AppController.php
 	 *   @Created_at : 10/03/2018
-	 *   @Update_at : 10/03/2018
+	 *   @Update_at : 25/05/2018
 	 * --------------------------------------------------------------------------
 	 */
 
@@ -23,11 +23,10 @@
 
 	class AppController extends Controller
 	{
-		protected const BASE_URL_GAE = '';
-		protected const BASE_URL_HEROKU = 'https://arcane-lake-71736.herokuapp.com';
+		public const BASE_URL_GAE = '';
+		public const BASE_URL_HEROKU = 'https://arcane-lake-71736.herokuapp.com';
 		
-		protected const GAE_API_URL = '';
-		protected const HEROKU_API_URL = '';
+		public const API_URL = '';
 		
 		/**
 		 * Client Guzzle for GAE (Google Apps Engine)
@@ -52,8 +51,8 @@
 			$this->ApplicationModule = App::getInstance();
 			$this->UrlModule = new Url();
 			
-			$this->GuzzleClientGAE = new Client(self::BASE_URL_GAE . static::GAE_API_URL);
-			$this->GuzzleClientHeroku = new Client(self::BASE_URL_HEROKU . static::HEROKU_API_URL);
+			$this->GuzzleClientGAE = new Client(self::BASE_URL_GAE . static::API_URL);
+			$this->GuzzleClientHeroku = new Client(self::BASE_URL_HEROKU . static::API_URL);
 		}
 	}
 ?>

@@ -64,7 +64,7 @@
 			
 			'Approval-Delete' => [
 				'Rule'   => '/approval/delete/:id',
-				'Action' => 'AccountController.delete',
+				'Action' => 'ApprovalController.delete',
 			],
 			
 			'Loan' => [

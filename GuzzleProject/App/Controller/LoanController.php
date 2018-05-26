@@ -9,7 +9,7 @@
 	 *
 	 *   @File : AccountController.php
 	 *   @Created_at : 10/03/2018
-	 *   @Update_at : 10/03/2018
+	 *   @Update_at : 25/05/2018
 	 * --------------------------------------------------------------------------
 	 */
 	
@@ -24,8 +24,7 @@
 	
 	class LoanController extends AppController
 	{
-		protected const HEROKU_API_URL = '/api/accounts';
-		protected const GAE_API_URL = '/api/loan';
+		public const API_URL = '/api/approvals';
 		
 		/**
 		 * @var AccountService
@@ -57,11 +56,10 @@
 		 */
 		public function index()
 		{
-			$request = $this->GuzzleClientHeroku->get();
+			$request = $this->GuzzleClientHeroku->get(self::BASE_URL_HEROKU . AccountController::API_URL);
 			$response = $request->send();
 			
 			$body = json_decode($response->getBody());
-			
 			if (is_null($body)) {
 				throw new ShirOSException("Problème avec le flux. Les données renvoyées ne sont pas sous format JSON", 500); // I'm a Teapot :)
 			}
@@ -83,7 +81,7 @@
 					$values = $this->validationModule->getValues();
 					
 					if ($valid) {
-						$request = $this->GuzzleClientGAE->post();
+						$request = $this->GuzzleClientHeroku->post();
 						foreach ($values as $key => $value) {
 							$request->setPostField($key, $value);
 						}

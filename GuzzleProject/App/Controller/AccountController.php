@@ -9,7 +9,7 @@
 	 *
 	 *   @File : AccountController.php
 	 *   @Created_at : 10/03/2018
-	 *   @Update_at : 10/03/2018
+	 *   @Update_at : 25/05/2018
 	 * --------------------------------------------------------------------------
 	 */
 	
@@ -23,7 +23,7 @@
 	
 	class AccountController extends AppController
 	{
-		protected const HEROKU_API_URL = '/api/accounts';
+		public const API_URL = '/api/accounts';
 		
 		/**
 		 * @var AccountService
@@ -122,7 +122,7 @@
 			 */
 			public function delete(int $id)
 			{
-				$request = $this->GuzzleClientHeroku->delete(self::BASE_URL_HEROKU . self::HEROKU_API_URL . "/{$id}");
+				$request = $this->GuzzleClientHeroku->delete(self::BASE_URL_HEROKU . self::API_URL . "/{$id}");
 				$response = $request->send();
 				
 				if ($response->getStatusCode() == 204) {
