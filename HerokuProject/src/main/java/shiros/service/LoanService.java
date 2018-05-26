@@ -51,11 +51,11 @@ public class LoanService extends Service {
     }
 	
     @DELETE
-    @Path("/{idDelete}")
-    public Response delete(@PathParam("accountId") int accountId) {
+    @Path("/{id}")
+    public Response delete(@PathParam("id") int id) {
     	try {
     		ApprovalRepository repository = new ApprovalRepository();   	
-    		repository.delete(accountId);
+    		repository.delete(id);
 
     		DatabaseConnection.close();
         	return Response.noContent().build();
