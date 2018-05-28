@@ -1,13 +1,14 @@
-package data;
+package orakel.database;
+
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import entity.Risk;
-import exception.DBException;
-import exception.ShirOSException;
+import orakel.entity.Risk;
+import orakel.exception.DBException;
+import orakel.exception.ShirOSException;
 
 public class RiskRepository extends Repository {
 

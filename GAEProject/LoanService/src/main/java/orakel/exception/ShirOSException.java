@@ -1,4 +1,4 @@
-package exception;
+package orakel.exception;
 
 public class ShirOSException extends Exception {
 	private static final long serialVersionUID = 1L;
