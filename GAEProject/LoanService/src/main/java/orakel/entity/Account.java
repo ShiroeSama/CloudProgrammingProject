@@ -1,4 +1,4 @@
-package entity;
+package orakel.entity;
 
 public class Account {
 	protected int id;

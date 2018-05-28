@@ -1,4 +1,4 @@
-package exception;
+package orakel.exception;
 
 public class DBException extends ShirOSException {
 	private static final long serialVersionUID = 2L;

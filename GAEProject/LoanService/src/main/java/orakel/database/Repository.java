@@ -1,23 +1,8 @@
-package data;
+package orakel.database;
 
-import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
 import java.sql.*;
-import javax.ws.*;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-import exception.DBException;
+import orakel.exception.DBException;
 
 public abstract class Repository
 {
@@ -43,4 +28,4 @@ public abstract class Repository
 	public String getTable() {
 		return table;
 	}
-}		
+}

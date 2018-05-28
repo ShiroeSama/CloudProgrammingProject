@@ -1,14 +1,11 @@
-package data;
+package orakel.database;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-import entity.Response;
-import entity.Risk;
-import exception.DBException;
-import exception.ShirOSException;
+import orakel.entity.Response;
+import orakel.exception.DBException;
 
 public class ResponseRepository extends Repository {
 
@@ -26,7 +23,7 @@ public class ResponseRepository extends Repository {
 	 * @throws DBException
 	 */
 	public Response find(int id) throws DBException {
-		String query = "SELECT * FROM public.\"Response\" WHERE id = ?";
+		String query = String.format("SELECT * FROM %s WHERE id = ?", this.table);
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement(query);
@@ -42,11 +39,10 @@ public class ResponseRepository extends Repository {
 
 				return response;			
 			} else {
-				throw new DBException(String.format("The risk for id %d doesn't exist", id), null);
+				throw new DBException(String.format("The response for id %d doesn't exist", id), null);
 			}
 		} catch(SQLException sqlException) {
-			throw new DBException(String.format("Error during the find risk query for id %d", id), sqlException);
+			throw new DBException(String.format("Error during the find response query for id %d", id), sqlException);
 		}		
 	}
-	
 }

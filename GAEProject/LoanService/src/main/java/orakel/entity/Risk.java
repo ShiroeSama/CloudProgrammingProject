@@ -1,27 +1,27 @@
-package entity;
+package orakel.entity;
 
 public class Risk {
 	public static final String LOW = "Low";
 	public static final String HIGH = "High";
 	public static final int CEILING = 10000;
 	
-	protected int idRisk;
-	protected String nameRisk;
+	protected int id;
+	protected String name;
 	
 	public int getId() {
-		return idRisk;
+		return id;
 	}
 	public Risk setId(int id) {
-		this.idRisk = id;
+		this.id = id;
 		return this;
 	}
 	
 	public String getName() {
-		return nameRisk;
+		return name;
 	}
 	
 	public Risk setName(String name) {
-		this.nameRisk = name;
+		this.name = name;
 		return this;
 	}
 }

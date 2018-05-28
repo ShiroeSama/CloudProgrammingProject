@@ -1,8 +1,8 @@
-package entity;
+package orakel.entity;
 
 public class Response {
-	public static final String LOW = "ACCEPTED";
-	public static final String HIGH = "REFUSED";
+	public static final int ACCEPTED_ID = 1;
+	public static final int REFUSED_ID = 2;
 	
 	protected int idResponse;
 	protected String nameResponse;

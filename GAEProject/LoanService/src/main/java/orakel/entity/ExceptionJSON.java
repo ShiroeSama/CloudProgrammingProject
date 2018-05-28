@@ -1,11 +1,11 @@
-package entity;
+package orakel.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import exception.ShirOSException;
+import orakel.exception.ShirOSException;
 
 @XmlRootElement(name="exception")
 public class ExceptionJSON {

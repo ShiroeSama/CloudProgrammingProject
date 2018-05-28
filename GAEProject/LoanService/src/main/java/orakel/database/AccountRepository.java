@@ -1,4 +1,5 @@
-package data;
+package orakel.database;
+
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,10 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import entity.Account;
-import entity.Risk;
-import exception.DBException;
-import exception.ShirOSException;
+import orakel.entity.Account;
+import orakel.entity.Risk;
+import orakel.exception.DBException;
+import orakel.exception.ShirOSException;
 
 public class AccountRepository extends Repository {
 	
@@ -142,18 +143,56 @@ public class AccountRepository extends Repository {
 			
 			int update = stmt.executeUpdate();
 			if (update == 0) {
-				throw new DBException("Creating risk failed. (No row affected)");
+				throw new DBException("Creating account failed. (No row affected)");
 			}
 			
 			try (ResultSet object = stmt.getGeneratedKeys()) {
 	            if (object.next()) {
 	            	account.setId(object.getInt(1));
 	            } else {
-	                throw new DBException("Creating risk failed. (No ID obtained)");
+	                throw new DBException("Creating account failed. (No ID obtained)");
 	            }
 	        }
 		} catch(SQLException|ShirOSException sqlException) {
 			throw new DBException("Error during the account insert query", sqlException);
+		}	
+		
+		return account;
+	}
+	
+	/**
+	 * Add Account
+	 * 
+	 * @param Account account
+	 * @param Double amount
+	 * 
+	 * @return Account
+	 * @throws DBException
+	 */	
+	public Account edit(Account account, Double amount) throws DBException {		
+		String query = String.format("UPDATE %s SET amount = ? WHERE id = ?", this.table);
+		
+		account.setAmount(account.getAmount() + amount);
+		
+		try {
+			PreparedStatement stmt = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			stmt.setDouble(1, account.getAmount());
+			stmt.setInt(2, account.getId());
+			
+			int update = stmt.executeUpdate();
+			if (update == 0) {
+				throw new DBException("Editing account failed. (No row affected)");
+			}
+			
+			try (ResultSet object = stmt.getGeneratedKeys()) {
+	            if (object.next()) {
+	            	account.setId(object.getInt(1));
+	            } else {
+	                throw new DBException("Editing account failed. (No ID obtained)");
+	            }
+	        }
+		} catch(SQLException|ShirOSException sqlException) {
+			throw new DBException("Error during the account update query", sqlException);
 		}	
 		
 		return account;

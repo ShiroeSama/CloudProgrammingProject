@@ -1,10 +1,10 @@
-package service;
+package orakel.service;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import entity.ExceptionJSON;
-import exception.ShirOSException;
+import orakel.entity.ExceptionJSON;
+import orakel.exception.ShirOSException;
 
 public abstract class Service {
 	
