@@ -1,7 +1,10 @@
 package shiros.exception;
 
+import javax.ws.rs.core.Response.Status;
+
 public class ShirOSException extends Exception {
 	private static final long serialVersionUID = 1L;
+	protected static final String TYPE = "ShirosException";
 	
 	/**
 	 * Exception Type
@@ -9,20 +12,38 @@ public class ShirOSException extends Exception {
 	protected String type;
 	
 	/**
+	 * Code
+	 */
+	protected Status status;
+	
+	/**
 	 * Previous Exception
 	 */
-	protected Exception previous;
+	protected Throwable previous;
 	
 	
 	public ShirOSException(String message) {
-		this(message, null);
+	    super(message);
+	    this.type = TYPE;
+	    this.status = Status.INTERNAL_SERVER_ERROR;
+	    this.previous = null;
+	}
+	
+	public ShirOSException(String message, Status status) {
+	    this(message);
+	    this.status = status;
 	}	
 		
-	public ShirOSException(String message, Exception previous) {
-        super(message);
-        this.type = "ShirosException";
+	public ShirOSException(String message, Throwable previous) {
+	    this(message);
         this.previous = previous;
 	}	
+	
+	public ShirOSException(String message, Status status, Throwable previous) {
+		this(message);
+	    this.status = status;
+	    this.previous = previous;
+	}
 
 	public String getType() {
 		return type;
@@ -32,11 +53,19 @@ public class ShirOSException extends Exception {
 		this.type = type;
 	}
 
-	public Exception getPrevious() {
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public Throwable getPrevious() {
 		return previous;
 	}
 
-	public void setPrevious(Exception previous) {
+	public void setPrevious(Throwable previous) {
 		this.previous = previous;
 	}
 

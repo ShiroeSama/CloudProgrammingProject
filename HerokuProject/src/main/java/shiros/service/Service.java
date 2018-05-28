@@ -16,6 +16,6 @@ public abstract class Service {
 		ExceptionJSON exceptionJson = new ExceptionJSON();
 		exceptionJson.configureEntity(shirosException);
 		
-		return Response.status(Status.INTERNAL_SERVER_ERROR).entity(exceptionJson).build();
+		return Response.status(shirosException.getStatus()).entity(exceptionJson).build();
 	}
 }

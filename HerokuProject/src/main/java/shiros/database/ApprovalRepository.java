@@ -118,7 +118,7 @@ public class ApprovalRepository extends Repository
 			if (result.next()) {
 				return this.getApproval(result);		
 			} else {
-				throw new DBException(String.format("The approval for id %d doesn't exist", id), null);
+				throw new DBException(String.format("The approval for id %d doesn't exist", id));
 			}
 		} catch(SQLException sqlException) {
 			throw new DBException(String.format("Error during the find risk query for id %d", id), sqlException);

@@ -12,12 +12,16 @@ public class ExceptionJSON {
 	
 	protected String type;
 	protected String message;
+	protected int statusCode;
+	protected String statusReason;
 	protected List<ExceptionJSON> previous;
 	protected StackTraceElement[] trace;
 	
 	public void configureEntity(ShirOSException shirosException) {
 		this.setType(shirosException.getType());
 		this.setMessage(shirosException.getMessage());
+		this.setStatusCode(shirosException.getStatus().getStatusCode());
+		this.setStatusReason(shirosException.getStatus().getReasonPhrase());
 				
 		this.previous = new ArrayList<ExceptionJSON>();
 		
@@ -28,7 +32,7 @@ public class ExceptionJSON {
 		this.trace = shirosException.getStackTrace();
 	}
 	
-	protected void configurePrevious(Exception exception) {
+	protected void configurePrevious(Throwable exception) {
 		ExceptionJSON exceptionTrace = new ExceptionJSON();
 		
 		if (exception instanceof ShirOSException) {
@@ -65,6 +69,22 @@ public class ExceptionJSON {
 	public ExceptionJSON setMessage(String message) {
 		this.message = message;
 		return this;
+	}
+	
+	public int getStatusCode() {
+		return statusCode;
+	}
+
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+
+	public String getStatusReason() {
+		return statusReason;
+	}
+
+	public void setStatusReason(String statusReason) {
+		this.statusReason = statusReason;
 	}
 
 	public List<ExceptionJSON> getPrevious() {

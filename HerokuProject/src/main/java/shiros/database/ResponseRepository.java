@@ -39,7 +39,7 @@ public class ResponseRepository extends Repository {
 
 				return response;			
 			} else {
-				throw new DBException(String.format("The response for id %d doesn't exist", id), null);
+				throw new DBException(String.format("The response for id %d doesn't exist", id));
 			}
 		} catch(SQLException sqlException) {
 			throw new DBException(String.format("Error during the find response query for id %d", id), sqlException);

@@ -43,7 +43,7 @@ public class RiskRepository extends Repository {
 
 				return risk;			
 			} else {
-				throw new DBException(String.format("The risk for id %d doesn't exist", id), null);
+				throw new DBException(String.format("The risk for id %d doesn't exist", id));
 			}
 		} catch(SQLException sqlException) {
 			throw new DBException(String.format("Error during the find risk query for id %d", id), sqlException);
@@ -81,7 +81,7 @@ public class RiskRepository extends Repository {
 
 				return risk;			
 			} else {
-				throw new DBException(String.format("The risk for account id %d doesn't exist", accountId), null);
+				throw new DBException(String.format("The risk for account id %d doesn't exist", accountId));
 			}
 		} catch(SQLException sqlException) {
 			throw new DBException(String.format("Error during the find risk by account query for account id %d", accountId), sqlException);
